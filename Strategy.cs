@@ -8,8 +8,6 @@ namespace Strategy
     {
         string Name { get; set; }
         int Force { get; set; }
-
-        void GetStat();
     }
 
     internal interface IAction
@@ -96,11 +94,6 @@ namespace Strategy
         {
             moveAction = new MoveAction();
             attackAction = new AttackAction();
-        }
-
-        public void GetStat()
-        {
-            Console.WriteLine($"Имя: {Name}; Сила: {Force} ");
         }
 
         #region Реализация действий конкретного моба
@@ -218,8 +211,9 @@ namespace Strategy
                 Name = "Костяной жнец", 
                 Force = 10000
             };
-
-            bonereader.GetStat();
+            var nameMob = bonereader.Name;
+            var forceMob = bonereader.Force;
+            Console.WriteLine($"Имя: {nameMob}; Сила: {forceMob} ");
             Console.WriteLine("\n");
 
             bonereader.MoveForward();
